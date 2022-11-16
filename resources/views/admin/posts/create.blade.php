@@ -44,6 +44,15 @@
                 </div>
             @enderror
         </div>
+
+        <div @error('tags') class="is-invalid" @enderror>
+            <label>Tags:</label>
+            @foreach ($tags as $tag)
+                <label>{{ $tag->name }}</label>
+                <input type="checkbox" name="tags[]" value={{ $tag->id }}>
+            @endforeach
+        </div>
+
         <input type="submit" value="Create">
     </form>
     <div class="mt-5">

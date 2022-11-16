@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use App\Tag;
+
 class TagSeeder extends Seeder
 {
     /**
@@ -12,5 +14,13 @@ class TagSeeder extends Seeder
     public function run()
     {
         //
+        $tags = ['hardstyle', 'hardcore', 'frenchcore', 'freestyle', 'techno', 'oldschool', 'trance'];
+
+        foreach($tags as $model) {
+            $tag = new Tag();
+            $tag->name = $model;
+            $tag->slug = Str::slug($tag->name);
+            $tag->save();
+        }
     }
 }
